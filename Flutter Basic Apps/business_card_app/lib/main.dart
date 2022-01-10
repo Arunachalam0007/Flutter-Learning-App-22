@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
+            const CircleAvatar(
               backgroundImage: AssetImage('images/arunsha.png'),
               radius: 50.0,
             ),
-            Text(
+            const Text(
               'Arun Sha',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
                 fontFamily: 'Pacifico',
@@ -34,48 +34,50 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.teal.shade100,
                 fontFamily: 'SourceSansPro',
+                letterSpacing: 2.5,
               ),
             ),
-            Container(
-              color: Colors.white,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-              padding: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.phone,
-                    color: Colors.teal,
-                  ),
-                  Text(
-                    ' +91 8526030805',
-                    style: TextStyle(
-                      color: Colors.teal.shade900,
-                      fontFamily: 'SourceSansPro',
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
+            const SizedBox(
+              height: 10,
+              width: 155,
+              child: Divider(
+                color: Colors.white,
               ),
             ),
-            Container(
+            Card(
               color: Colors.white,
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-              padding: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.email,
-                    color: Colors.teal,
+              child: ListTile(
+                leading:  const Icon(
+                  Icons.phone,
+                  color: Colors.teal,
+                ),
+                trailing: Text(
+                  ' +91 8526030805                                 ',
+                  style: TextStyle(
+                    color: Colors.teal.shade900,
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 20,
                   ),
-                  Text(
-                    'arunsha0007@gmail.com',
-                    style: TextStyle(
-                      color: Colors.teal.shade900,
-                      fontFamily: 'SourceSansPro',
-                      fontSize: 20,
-                    ),
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+              child: ListTile(
+                leading: const Icon(
+                  Icons.email,
+                  color: Colors.teal,
+                ),
+                trailing:  Text(
+                  'arunsha0007@gmail.com             ',
+                  style: TextStyle(
+                    color: Colors.teal.shade900,
+                    fontFamily: 'SourceSansPro',
+                    fontSize: 20,
                   ),
-                ],
+                ),
               ),
             )
           ],
