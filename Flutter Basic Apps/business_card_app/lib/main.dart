@@ -11,37 +11,75 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Column(
-           // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-                child: Text('Container 1'),
-                padding: EdgeInsets.all(30),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 100,
-                width: 100,
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              backgroundImage: AssetImage('images/arunsha.png'),
+              radius: 50.0,
+            ),
+            Text(
+              'Arun Sha',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
                 color: Colors.white,
-                child: Text('Container 2'),
-                padding: EdgeInsets.all(30),
+                fontFamily: 'Pacifico',
               ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.green,
-                child: Text('Container 3'),
-                padding: EdgeInsets.all(30),
+            ),
+            Text(
+              'Flutter Developer',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.teal.shade100,
+                fontFamily: 'SourceSansPro',
               ),
-            ],
-          ),
-        ),
+            ),
+            Container(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+              padding: EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.phone,
+                    color: Colors.teal,
+                  ),
+                  Text(
+                    ' +91 8526030805',
+                    style: TextStyle(
+                      color: Colors.teal.shade900,
+                      fontFamily: 'SourceSansPro',
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+              padding: EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.email,
+                    color: Colors.teal,
+                  ),
+                  Text(
+                    'arunsha0007@gmail.com',
+                    style: TextStyle(
+                      color: Colors.teal.shade900,
+                      fontFamily: 'SourceSansPro',
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        )),
       ),
     );
   }
