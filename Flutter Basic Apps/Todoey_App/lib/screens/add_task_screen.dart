@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey_app/models/task_data.dart';
+
 
 class AddTaskScreen extends StatelessWidget {
-  final Function(String?) onPressedCallBack;
-
-  AddTaskScreen({required this.onPressedCallBack});
   @override
   Widget build(BuildContext context) {
     String? newTaskTitle;
     return Container(
-      color: Color(0xff757575),
+      color: const Color(0xff757575),
       child: Container(
-        padding: EdgeInsets.all(30),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(30),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
@@ -21,11 +21,12 @@ class AddTaskScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Add Task',textAlign: TextAlign.center, style: TextStyle(fontSize: 30,color: Colors.lightBlueAccent),),
+            const Text('Add Task',textAlign: TextAlign.center, style: TextStyle(fontSize: 30,color: Colors.lightBlueAccent),),
             TextField(autofocus: true,textAlign: TextAlign.center,onChanged: (newVal){newTaskTitle = newVal;},),
             ElevatedButton(onPressed: (){
-              onPressedCallBack(newTaskTitle);
-            }, child: Text('Add'),)
+              Provider.of<TaskData>(context, listen: false).addTasks(newTaskTitle ?? 'Demo');
+              Navigator.pop(context);
+            }, child: const Text('Add'),)
           ],
         ),
       ),
