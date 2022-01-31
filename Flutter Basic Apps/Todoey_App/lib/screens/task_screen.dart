@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_app/models/task.dart';
 import 'package:todoey_app/widgets/task_tile.dart';
 import 'package:todoey_app/widgets/tasks_list.dart';
 
 import 'add_task_screen.dart';
 
-class TaskScreen extends StatelessWidget {
+class TaskScreen extends StatefulWidget {
   const TaskScreen({Key? key}) : super(key: key);
+
+  @override
+  _TaskScreenState createState() => _TaskScreenState();
+}
+
+class _TaskScreenState extends State<TaskScreen> {
+
+  List<Task> listOfTasks = [
+    Task(taskName: 'Wake Up at 6.30 AM'),
+    Task(taskName: 'Go to the GYM'),
+    Task(taskName: 'Fresh up and Ready to the Standup', isChecked: true)
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +29,13 @@ class TaskScreen extends StatelessWidget {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-             // isScrollControlled: true,
-              builder: (context) => AddTaskScreen(),
+              // isScrollControlled: true,
+              builder: (context) => AddTaskScreen(onPressedCallBack: (newTaskName){
+                setState(() {
+                  listOfTasks.add(Task(taskName: newTaskName ?? 'demo'));
+                });
+                Navigator.pop(context);
+              },),
             );
           },
           child: const Icon(Icons.add)),
@@ -49,7 +67,7 @@ class TaskScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  '12 Tasks',
+                  '${listOfTasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
@@ -68,7 +86,7 @@ class TaskScreen extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(listOfTasks: listOfTasks,),
             ),
           ),
         ],
@@ -76,3 +94,4 @@ class TaskScreen extends StatelessWidget {
     );
   }
 }
+
